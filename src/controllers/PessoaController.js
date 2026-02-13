@@ -18,6 +18,15 @@ class PessoaController extends Controller {
            return res.status(500).json({ erro:message }); 
         }
     }
+
+    async pegaTodasAsPessoas(req, res) {
+        try {
+          const listaTodasAsPessoas =   await pessoaServices.pegaPessoasEscopoTodos();
+            return res.status(200).json(listaTodasAsPessoas); 
+        } catch (erro) {
+           return res.status(500).json({ erro:message }); 
+        }
+    }
 }
 
 module.exports = PessoaController;
